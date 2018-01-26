@@ -56,10 +56,10 @@ rule_pattern = re.compile(
     r"(?P<header>"
     r"(?P<action>%s)\s*"        # Action
     r"[^\s]*\s*"                # Protocol
-    r"[^\s]*\s*"                # Source address(es)
+    r"(?P<src_ip>(([^\s\[\]]*)|(\[([^\s]*\s*\,{0,1})+\s*\])))\s*"                # Source address(es)
     r"[^\s]*\s*"                # Source port
     r"(?P<direction>[-><]+)\s*"	# Direction
-    r"[^\s]*\s*"		        # Destination address(es)
+    r"(?P<dst_ip>(([^\s\[\]]*)|(\[([^\s]*\s*\,{0,1})+\s*\])))\s*"		        # Destination address(es)
     r"[^\s]*"                   # Destination port
     r")"                        # End of header.
     r"\s*"                      # Trailing spaces after header.
